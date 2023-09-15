@@ -3,7 +3,7 @@ module Main where
 import MaxHeap
 import System.IO
 
-popPrint :: (Ord nodeType, Show nodeType) => MaxHeap nodeType -> Int -> IO()
+popPrint :: (Ord a, Show a) => MaxHeap a -> Int -> IO()
 popPrint heap iter
   | iter == 0 || len heap == 0 = putStrLn "Empty!"
   | otherwise = do
@@ -21,4 +21,3 @@ main = do
     print h
     putStrLn "Dequeueing: "
     popPrint h (len h)
-
