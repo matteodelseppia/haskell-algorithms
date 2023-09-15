@@ -13,9 +13,9 @@ buildMaxHeap [] = MaxHeap {array = [], len = 0}
 buildMaxHeap arr = MaxHeap {array = (reverse.sort)arr, len = (length arr)}
 
 heapMax :: (Num nodeType, Ord nodeType) => MaxHeap nodeType -> Maybe nodeType
-heapMax heap = case null (array heap) of
-    True -> Nothing
-    False -> Just ((head.array) heap)
+heapMax heap
+    | null (array heap) = Nothing
+    | otherwise = Just ((head.array) heap)
 
 slice :: (Num a) => [a] -> Int -> Int -> [a]
 slice array from to = case from >= to of
